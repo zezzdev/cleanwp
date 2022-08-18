@@ -227,14 +227,7 @@ add_filter( 'woocommerce_admin_features', function( $features ) {
 } );
 
 
-// remove dashicons in frontend to non-admin 
-    function wpdocs_dequeue_dashicon() {
-        if (current_user_can( 'update_core' )) {
-            return;
-        }
-        wp_deregister_style('dashicons');
-    }
-    add_action( 'wp_enqueue_scripts', 'wpdocs_dequeue_dashicon' );
+
     
 
 /* REMOVE RSD LINK */
@@ -257,3 +250,7 @@ remove_action( 'wp_head', 'wp_shortlink_wp_head');
 /* REMOVE DISCOVERY LINKS */
 
 remove_action('wp_head', 'wp_oembed_add_discovery_links', 10);
+
+
+
+
